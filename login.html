@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MokeSell</title>
     <link rel="stylesheet" href="login.css">
-
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body>
     <header>
@@ -13,17 +13,22 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="chat.html">Chat</a></li>
                 <li><a href="login.html" class="login-button">Login</a></li>
-                <li><a href="#" id="logout-button">Logout</a></li>
                 <li><a href="register.html" class="register-button">Register</a></li>
-                <li><a href="sell.html" id="sell-button" class="sell-nav-button">Sell</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <div class="lottie-container left">
+            <dotlottie-player 
+                src="https://lottie.host/cb177503-c4d7-4d56-8916-bc5a7ad56665/dbWu0Y2Jb2.lottie" 
+                background="transparent" 
+                speed="1" 
+                loop 
+                autoplay>
+            </dotlottie-player>
+        </div>
+
         <section class="auth-container">
             <h2>Login to Your Account</h2>
             <form id="login-form">
@@ -31,21 +36,27 @@
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-    
                 <div class="input-group">
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-    
                 <button type="submit" class="login-btn">Login</button>
             </form>
             <p class="register-link">Don't have an account? <a href="register.html">Register here</a></p>
         </section>
+
+        <div class="lottie-container right">
+            <dotlottie-player 
+                src="https://lottie.host/5625edbb-40cc-424a-901e-ab6ae10c9ece/ZzSj5nNL04.lottie" 
+                background="transparent" 
+                speed="1" 
+                loop 
+                autoplay>
+            </dotlottie-player>
+        </div>
     </main>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
-    <script src="auth.js" defer></script>
-
-
+    <footer>
+        <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

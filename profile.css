@@ -233,22 +233,15 @@ body {
     margin: 0;
 }
 
-/* Main content area grows to fill space between header and footer */
-main {
-    flex: 1; /* This makes the main content area flexible */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically if there's nothing */
-    align-items: center; /* Center content horizontally if there's nothing */
-}
 
-/* Footer stays at the bottom */
+/* Footer Styling */
 footer {
     background-color: #343a40;
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding-top: 1rem;
     position: relative;
     bottom: 0;
     width: 100%;
+    margin-top: auto;
 }
