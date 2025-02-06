@@ -3,14 +3,14 @@
       {
         "id": 1,
         "username": "testuser1",
-        "email": "testuser1@example.com",
-        "password": "$2a$10$T4ZI7.Ni1u3yk1Hfh..HfO5VZTxo/VxKpAJDgRCWSUjCeey/bLbT2"
+        "email": "testuser1@gmail.com",
+        "password": "password123"
       },
       {
         "id": 2,
         "username": "testuser2",
-        "email": "testuser2@example.com",
-        "password": "$2a$10$Xr9w0QXJOUu4JONBCpiBvux0KnIpp2YoLXf3hxzwzLmFqjLMkF7S6"
+        "email": "testuser2@gmail.com",
+        "password": "mypassword"
       }
     ],
     "listing": [

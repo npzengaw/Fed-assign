@@ -1,15 +1,70 @@
-// RESTdb API Configuration
-const API_URL = "https://mokesell-ec88.restdb.io/rest/userss"; // Correct RestDB collection URL
-const API_KEY = "679628de0acc0620a20d364d"; // Your RestDB API Key
+const API_URL = "http://localhost:5000/users"; // Local JSON server
 
-// Function to hash a password using the Web Crypto API
-async function hashPassword(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data); // Generate hash
-    const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convert to byte array
-    return hashArray.map(byte => byte.toString(16).padStart(2, "0")).join(""); // Convert to hex string
+async function loginUser(event) {
+    event.preventDefault();
+    console.log("Login function triggered"); // Check if the function is called
+
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    console.log("Entered Email:", email); // Log the email entered
+    console.log("Entered Password:", password); // Log the password entered
+
+    if (!email || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_URL}?email=${email}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        console.log("API Response Status:", response.status); // Log API response status
+
+        if (!response.ok) {
+            throw new Error(`Login failed: ${response.statusText}`);
+        }
+
+        const users = await response.json();
+        console.log("Fetched Users:", users); // Log fetched users from the API
+
+        if (users.length === 0) {
+            alert("No user found with this email.");
+            return;
+        }
+
+        const user = users[0];
+        console.log("Matched User:", user); // Log the user that matched
+
+        // Direct comparison of plaintext passwords
+        if (password === user.password) {
+            console.log("Login Successful. Storing user in localStorage...");
+            localStorage.setItem("user", JSON.stringify(user)); // Store user in localStorage
+            window.location.href = "profile.html"; // Redirect to profile page
+        } else {
+            alert("Invalid password. Please try again.");
+        }
+    } catch (error) {
+        console.error("Login Error:", error.message);
+        alert("Login Error: " + error.message);
+    }
 }
+
+// Attach the login function to the login form
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("login-form");
+    if (loginForm) {
+        loginForm.addEventListener("submit", loginUser);
+    }
+});
+
 
 // Function to register a new user
 async function registerUser(event) {
@@ -29,21 +84,19 @@ async function registerUser(event) {
     }
 
     try {
-        // Hash the password
-        const hashedPassword = await hashPassword(password);
-        console.log("Hashed Password (SHA-256):", hashedPassword);
+        // Hash the password (use bcryptjs for consistency if using bcrypt-hashed passwords in db.json)
+        const hashedPassword = password; // No hashing for localhost testing
 
         const userData = {
             username: username,
             email: email,
-            password: hashedPassword, // Store the hashed password
+            password: hashedPassword, // Store plaintext for simplicity in local tests
         };
 
         const response = await fetch(API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "x-apikey": API_KEY,
             },
             body: JSON.stringify(userData),
         });
@@ -53,14 +106,6 @@ async function registerUser(event) {
             throw new Error(`Registration failed: ${response.statusText}\n${errorText}`);
         }
 
-        const data = await response.json();
-        console.log("User Registered Successfully:", data);
-
-        // Clear form fields
-        usernameInput.value = "";
-        emailInput.value = "";
-        passwordInput.value = "";
-
         alert("Account successfully created. Redirecting to login...");
         window.location.href = "login.html"; // Redirect to login page
     } catch (error) {
@@ -69,116 +114,5 @@ async function registerUser(event) {
     }
 }
 
-// Function to log in a user
-async function loginUser(event) {
-    event.preventDefault();
 
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
 
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-
-    if (!email || !password) {
-        alert("Please fill in all fields.");
-        return;
-    }
-
-    try {
-        // Fetch user data from RestDB
-        const response = await fetch(`${API_URL}?q={"email":"${email}"}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "x-apikey": API_KEY,
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error(`Login failed: ${response.statusText}`);
-        }
-
-        const users = await response.json();
-        if (users.length === 0) {
-            alert("No user found with this email.");
-            return;
-        }
-
-        const user = users[0];
-        const hashedPassword = await hashPassword(password);
-
-        if (hashedPassword !== user.password) {
-            alert("Invalid password. Please try again.");
-            return;
-        }
-
-        // Generate JWT Token (Mocking authentication)
-        const token = btoa(JSON.stringify({ _id: user._id, username: user.username, email: user.email }));
-
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify({ username: user.username, email: user.email }));
-
-        alert("Login successful. Redirecting to homepage...");
-        window.location.href = "index.html";
-    } catch (error) {
-        console.error("Login Error:", error.message);
-        alert("Login Error: " + error.message);
-    }
-}
-
-// Function to dynamically update the navigation bar
-function updateNavBar() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const navBar = document.querySelector("nav ul");
-
-    // Clear existing nav items
-    navBar.innerHTML = "";
-
-    // Always show Home
-    navBar.innerHTML += `<li><a href="index.html">Home</a></li>`;
-
-    if (user) {
-        // If the user is logged in
-        navBar.innerHTML += `
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li><a href="sell.html" id="sell-button" class="sell-nav-button">Sell</a></li>
-            <li><a href="#" id="logout-button">Logout</a></li>
-        `;
-    } else {
-        // If the user is not logged in
-        navBar.innerHTML += `
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-        `;
-    }
-
-    // Add logout functionality if the user is logged in
-    if (user) {
-        const logoutButton = document.getElementById("logout-button");
-        logoutButton.addEventListener("click", logoutUser);
-    }
-}
-
-// Function to log out the user
-function logoutUser() {
-    localStorage.removeItem("user");
-    window.location.reload();
-}
-
-// Call the updateNavBar function on page load
-document.addEventListener("DOMContentLoaded", updateNavBar);
-
-// Attach event listeners to forms
-document.addEventListener("DOMContentLoaded", () => {
-    const registerForm = document.getElementById("register-form");
-    if (registerForm) {
-        registerForm.addEventListener("submit", registerUser);
-    }
-
-    const loginForm = document.getElementById("login-form");
-    if (loginForm) {
-        loginForm.addEventListener("submit", loginUser);
-    }
-});
