@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MokeSell</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>MokeSell</h1>
+        <nav>
+            <ul>
+                <li>
+                    <button class="lottie-button">
+                        <dotlottie-player 
+                            src="https://lottie.host/fd30fb9f-a07f-4254-9821-186c239af1db/BaV9LaSJyv.lottie" 
+                            background="transparent" 
+                            speed="1" 
+                            direction="1" 
+                            hover>
+                        </dotlottie-player>
+                    </button>
+                    <a href="index.html">Home</a>
+                </li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="login.html" class="login-button">Login</a></li>
+                <li><a href="#" id="logout-button">Logout</a></li>
+                <li><a href="register.html" class="register-button">Register</a></li>
+                <li><a href="sell.html" id="sell-button" class="sell-nav-button">Sell</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for items...">
+        <button>Search</button>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section id="welcome-banner">
+            <div class="welcome-text">
+                <h2>Welcome to MokeSell</h2>
+                <p>Your go-to platform for buying and selling items easily and securely.</p>
+            </div>
+        </section>
+
+        <!-- Featured Listings -->
+        <section id="featured-listings">
+            <h2>Featured Listings</h2>
+            <div class="listings-container">
+                <!-- Listings will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

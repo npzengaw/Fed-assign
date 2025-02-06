@@ -1,0 +1,254 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Header Styling */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensure it stays above other elements */
+    background-color: linear-gradient(45deg, #E86D2C, #E69631);
+    background:  #E86D2C;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically centers the navbar content */
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation Bar Styling */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center; /* Center-align items vertically */
+}
+
+nav ul li a, nav ul li button {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover, nav ul li button:hover {
+    background-color: white;
+    color: #E86D2C;
+}
+
+/* Sell Button Styling */
+.sell-nav-button {
+    display: inline-flex; /* Use flex to align content properly */
+    align-items: center; /* Vertically center the text */
+    justify-content: center; /* Horizontally center the text */
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sell-nav-button:hover {
+    background-color: white;
+    color: #E86D2C;
+}
+
+/* Profile Section */
+.profile-container {
+    width: 80%;
+    margin: 2rem auto;
+}
+
+/* Profile Banner Section */
+.profile-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 4rem; /* Increased padding for larger size */
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly increased shadow for emphasis */
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Increased gap between picture and details */
+}
+
+.profile-picture img {
+    width: 120px; /* Doubled size */
+    height: 120px; /* Doubled size */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd; /* Increased border size */
+}
+
+.profile-details h2 {
+    margin: 0;
+    font-size: 3rem; /* Doubled font size */
+    color: #333;
+}
+
+.profile-details p {
+    margin: 0.4rem 0; /* Increased spacing */
+    font-size: 1.6rem; /* Increased font size */
+    color: gray;
+}
+
+.profile-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Increased gap between stats items */
+    font-size: 1.8rem; /* Increased font size */
+}
+
+.profile-stats strong {
+    font-size: 2.4rem; /* Increased size for strong emphasis */
+    color: #000;
+}
+
+.edit-profile-btn {
+    background-color: white;
+    color: #E86D2C;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem 2rem; /* Increased padding for larger button */
+    cursor: pointer;
+    font-size: 1.6rem; /* Larger font size */
+}
+
+.edit-profile-btn:hover {
+    background-color: #f3f3f3;
+}
+
+
+/* Listings Section */
+.listing-grid {
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+    gap: 1.5rem; /* Add spacing between items */
+    width: 60%; /* Stretch to 60% of the screen width (leaving 20% on each side) */
+    margin: 0 auto; /* Center the grid within the available space */
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.user-listings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+
+
+.listing-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.listing-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.listing-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.listing-item h4 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.listing-item p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .listing-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        width: 80%; /* Adjust the grid width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .listing-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile devices */
+        width: 90%; /* Adjust the grid width for very small screens */
+    }
+}
+
+
+
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Ensure the entire layout takes up the full height of the viewport */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes up the full viewport height */
+    margin: 0;
+}
+
+/* Main content area grows to fill space between header and footer */
+main {
+    flex: 1; /* This makes the main content area flexible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically if there's nothing */
+    align-items: center; /* Center content horizontally if there's nothing */
+}
+
+/* Footer stays at the bottom */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

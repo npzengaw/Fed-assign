@@ -1,0 +1,99 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "testuser1",
+        "email": "testuser1@example.com",
+        "password": "$2a$10$T4ZI7.Ni1u3yk1Hfh..HfO5VZTxo/VxKpAJDgRCWSUjCeey/bLbT2"
+      },
+      {
+        "id": 2,
+        "username": "testuser2",
+        "email": "testuser2@example.com",
+        "password": "$2a$10$Xr9w0QXJOUu4JONBCpiBvux0KnIpp2YoLXf3hxzwzLmFqjLMkF7S6"
+      }
+    ],
+    "listing": [
+      {
+        "id": 1,
+        "title": "Item 1 from User 1",
+        "description": "Description of item 1",
+        "price": 10,
+        "image": "https://picsum.photos/150",
+        "email": "testuser1@example.com"
+      },
+      {
+        "id": 2,
+        "title": "Item 2 from User 1",
+        "description": "Description of item 2",
+        "price": 20,
+        "image": "https://picsum.photos/150",
+        "email": "testuser1@example.com"
+      },
+      {
+        "id": 3,
+        "title": "Item 3 from User 1",
+        "description": "Description of item 3",
+        "price": 30,
+        "image": "https://picsum.photos/150",
+        "email": "testuser1@example.com"
+      },
+      {
+        "id": 4,
+        "title": "Item 4 from User 1",
+        "description": "Description of item 4",
+        "price": 40,
+        "image": "https://picsum.photos/150",
+        "email": "testuser1@example.com"
+      },
+      {
+        "id": 5,
+        "title": "Item 5 from User 1",
+        "description": "Description of item 5",
+        "price": 50,
+        "image": "https://picsum.photos/150",
+        "email": "testuser1@example.com"
+      },
+      {
+        "id": 6,
+        "title": "Item 1 from User 2",
+        "description": "Description of item 1",
+        "price": 15,
+        "image": "https://picsum.photos/150",
+        "email": "testuser2@example.com"
+      },
+      {
+        "id": 7,
+        "title": "Item 2 from User 2",
+        "description": "Description of item 2",
+        "price": 25,
+        "image": "https://picsum.photos/150",
+        "email": "testuser2@example.com"
+      },
+      {
+        "id": 8,
+        "title": "Item 3 from User 2",
+        "description": "Description of item 3",
+        "price": 35,
+        "image": "https://picsum.photos/150",
+        "email": "testuser2@example.com"
+      },
+      {
+        "id": 9,
+        "title": "Item 4 from User 2",
+        "description": "Description of item 4",
+        "price": 45,
+        "image": "https://picsum.photos/150",
+        "email": "testuser2@example.com"
+      },
+      {
+        "id": 10,
+        "title": "Item 5 from User 2",
+        "description": "Description of item 5",
+        "price": 55,
+        "image": "https://picsum.photos/150",
+        "email": "testuser2@example.com"
+      }
+    ]
+  }
+  

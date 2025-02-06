@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - MokeSell</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>MokeSell</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="sell.html" id="sell-button" class="sell-nav-button">Sell</a></li>
+                <li><a href="#" id="logout-button">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Profile Banner Section -->
+    <section class="profile-banner">
+        <div class="profile-header">
+            <div class="profile-picture">
+                <img src="download.jpg" alt="Profile Icon" id="profile-icon">
+            </div>
+            <div class="profile-details">
+                <h2 id="profile-username">Zen Gaw</h2>
+                <p>Profile details &gt;</p>
+            </div>
+        </div>
+        <div class="profile-stats">
+            <p><strong>5.0</strong> ★</p>
+            <p>12 reviews</p>
+            <p>2y 5m Joined</p>
+        </div>
+        <button class="edit-profile-btn">Edit Profile</button>
+    </section>
+
+
+    <!-- Listings Section -->
+    <main>
+        <section class="user-listings">
+            <h3>Your Listings</h3>
+            <div id="user-listings-container" class="listing-grid">
+                <!-- User listings will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
+    </footer>
+
+    <script src="auth.js" defer></script>
+    
+    <script src="profile.js" defer></script>
+
+</body>
+</html>

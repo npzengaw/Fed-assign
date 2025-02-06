@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Item - MokeSell</title>
+    <link rel="stylesheet" href="sell.css">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>MokeSell</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="chat.html">Chat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sell Form -->
+    <main>
+        <section class="sell-section">
+            <h2>List Your Item</h2>
+            <form id="add-listing-form">
+                <input type="hidden" id="listing-id">
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+                <label for="description">Description:</label>
+                <textarea id="description" required></textarea>
+                <label for="price">Price ($):</label>
+                <input type="number" id="price" required>
+                <label for="image">Image URL:</label>
+                <input type="url" id="image" required>
+                <button type="submit">Save Listing</button>
+            </form>
+        
+            
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
+    </footer>
+
+    <script src="sell.js" defer></script>
+
+</body>
+</html>

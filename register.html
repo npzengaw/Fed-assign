@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - MokeSell</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>MokeSell</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="login.html" class="login-button">Login</a></li>
+                <li><a href="#" id="logout-button">Logout</a></li>
+                <li><a href="register.html" class="register-button">Register</a></li>
+                <li><a href="sell.html" id="sell-button" class="sell-nav-button">Sell</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="auth-container">
+            <h2>Create a New Account</h2>
+            <form id="register-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="new-password" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <script src="auth.js" defer></script>
+
+
+</body>
+</html>
