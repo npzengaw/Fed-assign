@@ -3,13 +3,13 @@
       {
         "id": 1,
         "username": "testuser1",
-        "email": "testuser1@gmail.com",
+        "email": "testuser1@example.com",
         "password": "password123"
       },
       {
         "id": 2,
         "username": "testuser2",
-        "email": "testuser2@gmail.com",
+        "email": "testuser2@example.com",
         "password": "mypassword"
       }
     ],

@@ -116,3 +116,23 @@ async function registerUser(event) {
 
 
 
+// Function to log out the user
+function logoutUser(event) {
+    event.preventDefault(); // Prevent default link behavior
+    console.log("Logout button clicked"); // Log to confirm button press
+
+    // Remove the user data from localStorage
+    localStorage.removeItem("user");
+    console.log("User removed from localStorage");
+
+    // Redirect to login page
+    window.location.href = "login.html";
+}
+
+// Attach logout function to the logout button
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutButton = document.getElementById("logout-button");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", logoutUser);
+    }
+});
