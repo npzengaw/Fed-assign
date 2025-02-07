@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Load the user's listings
     await loadUserListings(user.email);
+
+    // Fetch all listings for debugging (only needed if displaying all listings in profile)
+    await fetchListings();
 });
 
 async function loadUserListings(email) {
@@ -66,10 +69,54 @@ async function loadUserListings(email) {
     }
 }
 
+async function fetchListings() {
+    const API_URL = "http://localhost:5000/listing"; // Use local API for testing
+
+    try {
+        console.log("Fetching all listings...");
+        const response = await fetch(API_URL, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        if (!response.ok) {
+            console.error("HTTP Error:", response.status);
+            throw new Error("Failed to fetch listings");
+        }
+
+        const listings = await response.json();
+        console.log("Listings data:", listings);
+
+        const listingsContainer = document.getElementById("featured-listings");
+
+        if (!listings || listings.length === 0) {
+            listingsContainer.innerHTML = "<p>No listings available.</p>";
+            return;
+        }
+
+        listingsContainer.innerHTML = ""; // Clear existing content
+
+        listings.forEach((listing) => {
+            const listingElement = document.createElement("div");
+            listingElement.className = "listing";
+            listingElement.innerHTML = `
+                <img src="${listing.image}" alt="${listing.title}" onerror="this.src='https://via.placeholder.com/150';" />
+                <h3>${listing.title}</h3>
+                <p>${listing.description}</p>
+                <span>Price: $${listing.price}</span>
+            `;
+            listingsContainer.appendChild(listingElement);
+        });
+    } catch (error) {
+        console.error("Fetch error:", error.message);
+        alert("Failed to fetch listings. Please check the console for more details.");
+    }
+}
 
 async function deleteListing(listingId) {
-    const API_URL = "https://mokesell-ec88.restdb.io/rest/listing";
-    const API_KEY = "679628de0acc0620a20d364d";
+    const API_URL = "http://localhost:5000/listing"; // Local API
 
     if (!confirm("Are you sure you want to delete this listing?")) return;
 
@@ -78,7 +125,6 @@ async function deleteListing(listingId) {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                "x-apikey": API_KEY
             }
         });
 

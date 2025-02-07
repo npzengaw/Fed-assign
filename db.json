@@ -1,99 +1,105 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "username": "testuser1",
-        "email": "testuser1@example.com",
-        "password": "password123"
-      },
-      {
-        "id": 2,
-        "username": "testuser2",
-        "email": "testuser2@example.com",
-        "password": "mypassword"
-      }
-    ],
-    "listing": [
-      {
-        "id": 1,
-        "title": "Item 1 from User 1",
-        "description": "Description of item 1",
-        "price": 10,
-        "image": "https://picsum.photos/150",
-        "email": "testuser1@example.com"
-      },
-      {
-        "id": 2,
-        "title": "Item 2 from User 1",
-        "description": "Description of item 2",
-        "price": 20,
-        "image": "https://picsum.photos/150",
-        "email": "testuser1@example.com"
-      },
-      {
-        "id": 3,
-        "title": "Item 3 from User 1",
-        "description": "Description of item 3",
-        "price": 30,
-        "image": "https://picsum.photos/150",
-        "email": "testuser1@example.com"
-      },
-      {
-        "id": 4,
-        "title": "Item 4 from User 1",
-        "description": "Description of item 4",
-        "price": 40,
-        "image": "https://picsum.photos/150",
-        "email": "testuser1@example.com"
-      },
-      {
-        "id": 5,
-        "title": "Item 5 from User 1",
-        "description": "Description of item 5",
-        "price": 50,
-        "image": "https://picsum.photos/150",
-        "email": "testuser1@example.com"
-      },
-      {
-        "id": 6,
-        "title": "Item 1 from User 2",
-        "description": "Description of item 1",
-        "price": 15,
-        "image": "https://picsum.photos/150",
-        "email": "testuser2@example.com"
-      },
-      {
-        "id": 7,
-        "title": "Item 2 from User 2",
-        "description": "Description of item 2",
-        "price": 25,
-        "image": "https://picsum.photos/150",
-        "email": "testuser2@example.com"
-      },
-      {
-        "id": 8,
-        "title": "Item 3 from User 2",
-        "description": "Description of item 3",
-        "price": 35,
-        "image": "https://picsum.photos/150",
-        "email": "testuser2@example.com"
-      },
-      {
-        "id": 9,
-        "title": "Item 4 from User 2",
-        "description": "Description of item 4",
-        "price": 45,
-        "image": "https://picsum.photos/150",
-        "email": "testuser2@example.com"
-      },
-      {
-        "id": 10,
-        "title": "Item 5 from User 2",
-        "description": "Description of item 5",
-        "price": 55,
-        "image": "https://picsum.photos/150",
-        "email": "testuser2@example.com"
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser1",
+      "email": "testuser1@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "username": "testuser2",
+      "email": "testuser2@example.com",
+      "password": "mypassword"
+    }
+  ],
+  "listing": [
+    {
+      "id": "1",
+      "title": "Item 1 from User 1",
+      "description": "Description of item 1",
+      "price": 10,
+      "image": "https://picsum.photos/150",
+      "email": "testuser1@example.com"
+    },
+    {
+      "id": "2",
+      "title": "Item 2 from User 1",
+      "description": "Description of item 2",
+      "price": 20,
+      "image": "https://picsum.photos/150",
+      "email": "testuser1@example.com"
+    },
+    {
+      "id": "3",
+      "title": "Item 3 from User 1",
+      "description": "Description of item 3",
+      "price": 30,
+      "image": "https://picsum.photos/150",
+      "email": "testuser1@example.com"
+    },
+    {
+      "id": "4",
+      "title": "Item 4 from User 1",
+      "description": "Description of item 4",
+      "price": 40,
+      "image": "https://picsum.photos/150",
+      "email": "testuser1@example.com"
+    },
+    {
+      "id": "5",
+      "title": "Item 5 from User 1",
+      "description": "Description of item 5",
+      "price": 50,
+      "image": "https://picsum.photos/150",
+      "email": "testuser1@example.com"
+    },
+    {
+      "id": "6",
+      "title": "Item 1 from User 2",
+      "description": "Description of item 1",
+      "price": 15,
+      "image": "https://picsum.photos/150",
+      "email": "testuser2@example.com"
+    },
+    {
+      "id": "7",
+      "title": "Item 2 from User 2",
+      "description": "Description of item 2",
+      "price": 25,
+      "image": "https://picsum.photos/150",
+      "email": "testuser2@example.com"
+    },
+    {
+      "id": "8",
+      "title": "Item 3 from User 2",
+      "description": "Description of item 3",
+      "price": 35,
+      "image": "https://picsum.photos/150",
+      "email": "testuser2@example.com"
+    },
+    {
+      "id": "9",
+      "title": "Item 4 from User 2",
+      "description": "Description of item 4",
+      "price": 45,
+      "image": "https://picsum.photos/150",
+      "email": "testuser2@example.com"
+    },
+    {
+      "id": "10",
+      "title": "Item 5 from User 2",
+      "description": "Description of item 5",
+      "price": 55,
+      "image": "https://picsum.photos/150",
+      "email": "testuser2@example.com"
+    },
+    {
+      "id": "8e7f",
+      "title": "eqeqe",
+      "description": "eqeqeq",
+      "price": "111",
+      "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIHEBMSBxESExESDRIWERIODxEQDhAVFRYWIhYTFhMYHSggGBomHRMWIT0tJSkrLi4uGB8zODMtNygtLisBCgoKDQ0ODw0NDisZFRkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOAA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAwYCBAUBB//EADgQAQABAgIGBQsEAgMAAAAAAAABAgMEEQUGITFRkRJBYXGBExQiMjNCUnKxwdEjkqHhFaJic/D/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8Ap0BAAAAAAAAAAAAAAAAAAAAAAAAAAACMAEkBAAAAAAAAAAAAAAAAAAAAAAAAAAACMAEkBAAAAAAAAAAAAAAAAAAAAAAAAAAACMAEkBAAAAAAAAAAMbtyLUTNyYiI3zO5XtIawTVswUZR8dUbfCPyCw3LkW4zuTERxmcoaV3TFi3vuRPyxNX0VG9eqvTneqmqeMzmjBbv89Y+Kf2ymtaWs3fVuRHzZ0/VSwH0CmqK4zpnOOzbD1RMPia8NOdiqae6dk98O9o/WCK8qcbGU/HHq+MdQO6PKZ6W2l6AAAAAAAACMAEkBAAAAAAAAwv3osUzVdnKIjbLNVtYcf5evydufRonb21f0DV0ppKrH1bdlET6NP3ntaIAAAAAAA6uh9KzhJim9OduedHbHYtdNUVRnTtid0xufP1h1bx+f6V2e2j70/cFgAAAAAAABGACSAgAAAAAABq6SxPmtqqqN8Rs753KTM571k1qu5UUUx11TPKP7VoAAAAAAAABnYuzZqiqjfTMTHgwAX6xdi9TFVO6qmJjxZuZq7d8pYiJ92qY/H1dMAAAAAAEYAJICAAAAAAAFb1rn0rfyz9XCWHWuj2dXzR9FeAAAAAAAAAABZtVZ/Tr/wCz7Q7bj6sUdGzM/Fcn+Ih2AAAAAAARgAkgIAAAAAAAc3WCx5ezMxvomKuW/wDiVQfQKo6UZTumNqk6Swk4O5NM7t9M8YncDVAAAAAAAAB0tBYLzq7E1erRtntnqgFm0bY82tUUzvinb3zvbIAAAAAAAjABJAQAAAAAAANDS+j4x1GzZXT6s/aexvgKBcom1MxcjKYnbE74YrjpTRVOOjPdXEbKuPZKrYvB14Scr9OXCfdnukGuAAAADbwGjq8dP6Uej11T6sfkEOGw9WKqimzGczyjtnsXPR+EjBURTb8Z+KeuWOj9H0YGnK3tmfWqnfP9NsAAAAAAAAEYAJICAAAAAAAAABjctxdjK5ETE9UxnDKZy3tHEaXs2PWriZ4U+l9NgNXFavW7m2xM0Tw9ank59zV25T7OqmfGYlt3NZKY9lbqn5piPyhnWWrqtx+6fwDV/wADe4U/uhNa1cuT7WumO7OqUtOss+9bjwrn8Ni1rFbq9pTVTymAS4XQNqztuZ1z/wAtlPJ1KaYpjKmMo4Rua+Gx9rE+xriZ4bquUtkAAAAAAAAAAEYAJICAAAAAAGF25FmJquTERG+Z3AzcjSGnaMPnTh/Tq/0jx63K0rpirF502M6bf+1Xf2OUDaxePuYv21U5fDGynk1QAAAAAdHBaYu4XZM9OnhXt5Tvc4Bc9H6Ut47ZROVXw1b/AA4t58/iejtp39iw6J050sqMbPdX9qvyDvgAAAAAAAjABJAQAAAAAxuVxbiZrnKIjOZndEKjpfSc46rKjZbidkce2W3rFpHyk+StTsifTy654eDhgAAAAAAAAAAAA72gtLdDK3iZ2e5VPV2T2LG+fLRq/pHzinyd6fSpjZM+9H5gHZAAAAABGACSAgAAAaOl8Z5lbmY9adlPfx8G8qWsGK84uzTE+jRs8euft4A5kznveAAAAAAAAAAAAAAkw96cPVFVvfTOcIwF7wmIjFUU10bpjlPXCZW9WMX0apt1bp2098b4/wDcFkAAAABGACSBjFUcY5velHGOYPR50o4xzOlHGOYIsZe83t1V/DTM+PUotU9Kc6t8ztWfWa/0bUUx71cco/vJVwAAAAAAAAAAAAAAAAS4a9OHrpqp301RK9W64uRE07piJjxUBb9AX/K2KelO2mZp5bv4mAdIedKOMczpRxjmD0edKOMczpRxjmDAY9KOMc3oP//Z"
+    }
+  ]
+}

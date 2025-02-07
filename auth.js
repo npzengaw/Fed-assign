@@ -1,4 +1,3 @@
-const API_URL = "http://localhost:5000/users"; // Local JSON server
 
 async function loginUser(event) {
     event.preventDefault();

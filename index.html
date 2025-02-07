@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MokeSell</title>
     <link rel="stylesheet" href="index.css">
-    <script src="script.js" defer></script>
+
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body>
@@ -55,9 +55,12 @@
         <!-- Featured Listings -->
         <section id="featured-listings">
             <h2>Featured Listings</h2>
-            <div class="listings-container">
-                <!-- Listings will be dynamically added here -->
+            <div class="listing">
+                <img src="{{ listing.image_url }}" alt="Item Image" class="listing-image">
+                <h3>{{ listing.title }}</h3>
+                <p>{{ listing.price }}</p>
             </div>
+            
         </section>
     </main>
 
@@ -65,5 +68,8 @@
     <footer>
         <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
     </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
