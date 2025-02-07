@@ -225,19 +225,59 @@ nav ul li a:hover {
     box-sizing: border-box;
 }
 
+
 /* Featured Listings Section */
 #featured-listings-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for fluid columns */
-    gap: 1.5rem; /* Add spacing between items */
-    width: 100%; /* Allow grid to take full width */
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 1.5rem; /* Spacing between items */
+    width: 80%; /* Stretch to 80% of the screen width */
     margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box;
     background-color: #ffffff; /* White background */
     border-radius: 8px; /* Rounded corners */
     border: 1px solid #ddd; /* Light grey border */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Individual Listing Card */
+#featured-listings-container .listing {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover Effect on Listing */
+#featured-listings-container .listing:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+#featured-listings-container .listing img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Title and Description */
+#featured-listings-container .listing h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+#featured-listings-container .listing p {
+    font-size: 0.9rem;
+    color: #555;
 }
 
 

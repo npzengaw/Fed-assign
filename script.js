@@ -82,7 +82,7 @@ function displaySearchResults(listings) {
                  onerror="this.src='https://via.placeholder.com/150';" />
             <h3>${item.title}</h3>
             <p>${item.description}</p>
-            <span>Price: $${item.price}</span>
+            <span>Price: $${item.price},</span>
             <span>Condition: ${item.condition}</span>
         `;
         
@@ -116,7 +116,8 @@ async function fetchFeaturedListings() {
                      onerror="this.src='https://via.placeholder.com/150';" />
                 <h3>${listing.title}</h3>
                 <p>${listing.description}</p>
-                <span>Price: $${listing.price}</span>
+                <span>Price: $${listing.price},</span>
+                <span>Condition: ${listing.condition}</span>
             </div>
         `).join('');
     } catch (error) {
