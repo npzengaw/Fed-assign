@@ -18,7 +18,14 @@
                 <li><a href="register.html" class="register-button">Register</a></li>
             </ul>
         </nav>
+        <!-- Hamburger Menu -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+
 
     <!-- Main Content -->
     <main>
@@ -31,6 +38,7 @@
             ></dotlottie-player>
         </div>
 
+
         <!-- Auth Container -->
         <section class="auth-container">
             <h2>Create a New Account</h2>
@@ -38,16 +46,20 @@
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
+
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="new-password" required>
+
 
                 <button type="submit">Register</button>
             </form>
             <p>Already have an account? <a href="login.html">Login here</a></p>
         </section>
+
 
         <!-- Right Lottie Animation -->
         <div class="lottie-container right">
@@ -59,9 +71,21 @@
         </div>
     </main>
 
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
     </footer>
+
+
+    <script>
+        // JavaScript for Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
+
+
+
