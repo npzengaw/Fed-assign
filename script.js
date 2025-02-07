@@ -1,4 +1,8 @@
-
+// Initialize Listings on Page Load
+document.addEventListener('DOMContentLoaded', function() {
+    fetchListings();  // Fetch general listings
+    fetchFeaturedListings();  // Fetch featured listings
+});
 
 
 // Fetch and Display Listings
@@ -115,6 +119,11 @@ async function fetchFeaturedListings() {
         const listings = await response.json();
         const listingsContainer = document.querySelector('#featured-listings .listings-container');
 
+        if (!listingsContainer) {
+            console.error("Error: Listings container not found.");
+            return;
+        }
+
         if (!listings || listings.length === 0) {
             listingsContainer.innerHTML = '<p>No featured listings available.</p>';
             return;
@@ -133,5 +142,3 @@ async function fetchFeaturedListings() {
         alert('Failed to load featured listings.');
     }
 }
-
-document.addEventListener('DOMContentLoaded', fetchFeaturedListings);

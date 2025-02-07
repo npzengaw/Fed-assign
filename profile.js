@@ -56,7 +56,7 @@ async function loadUserListings(email) {
                 <div class="listing-item">
                     <img src="${listing.image}" alt="${listing.title}" onerror="this.src='https://via.placeholder.com/150';" />
                     <h4>${listing.title}</h4>
-                    <p>${listing.description}</p>
+                    <p>${listing.condition}</p>
                     <p>Price: $${listing.price}</p>
                     <button onclick="editListing('${listing.id || listing._id}')">Edit</button>
                     <button onclick="deleteListing('${listing.id || listing._id}')">Delete</button>

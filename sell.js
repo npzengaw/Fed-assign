@@ -146,7 +146,17 @@ document.getElementById("add-listing-form").addEventListener("submit", async (ev
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const price = document.getElementById("price").value;
-    const imageFile = document.getElementById("fileInput").files[0]; // Get the file from the file input
+    
+    // Get selected condition
+    const condition = document.querySelector('input[name="condition"]:checked')?.value; // Capture selected condition
+
+    // Check if a condition is selected
+    if (!condition) {
+        alert("Please select a condition for the item.");
+        return;
+    }
+
+    const imageFile = document.getElementById("fileInput").files[0];
 
     if (!imageFile) {
         alert("Please upload an image.");
@@ -165,7 +175,13 @@ document.getElementById("add-listing-form").addEventListener("submit", async (ev
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ title, description, price, image: imageBase64 }) // Send the image as Base64
+                body: JSON.stringify({
+                    title,
+                    description,
+                    price,
+                    condition, // Include the condition here
+                    image: imageBase64,
+                })
             });
 
             if (!response.ok) {
