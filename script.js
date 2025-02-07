@@ -1,123 +1,103 @@
-// Initialize Listings on Page Load
-document.addEventListener('DOMContentLoaded', function() {
-    fetchListings();  // Fetch general listings
-    fetchFeaturedListings();  // Fetch featured listings
-});
+document.addEventListener("DOMContentLoaded", function() {
+    // Delay the setup of event listeners to ensure the DOM is fully loaded
+    setTimeout(() => {
+        const searchBar = document.getElementById("searchBar");
+        const searchBtn = document.getElementById("search-btn");
+        const listingsContainer = document.getElementById("featured-listings-container");
 
+        // Log elements to verify they are loaded
+        console.log("Search Bar:", searchBar);
+        console.log("Search Button:", searchBtn);
+        console.log("Listings Container:", listingsContainer);
 
-// Fetch and Display Listings
-async function fetchListings() {
-    try {
-        console.log(`Fetching listings from ${API_URL}...`);
-        const response = await fetch(API_URL, {
-            method: "GET",
-            headers: USE_LOCAL_API
-                ? { "Content-Type": "application/json" } // No API key for local
-                : { "Content-Type": "application/json", "x-apikey": API_KEY }
-        });
-
-        if (!response.ok) {
-            console.error("HTTP Error:", response.status);
-            throw new Error("Failed to fetch listings");
-        }
-
-        const listings = await response.json();
-        console.log("Listings:", listings);
-
-        const listingsContainer = document.getElementById("featured-listings");
-        if (!listings || listings.length === 0) {
-            listingsContainer.innerHTML = "<p>No listings available.</p>";
+        // If any element is missing, log an error
+        if (!searchBar || !searchBtn || !listingsContainer) {
+            console.error("Required elements not found!");
             return;
         }
 
-        listingsContainer.innerHTML = listings.map((listing) => `
-            <div class="listing">
-                <img src="${listing.image ? listing.image : 'https://via.placeholder.com/150'}" 
-                     alt="${listing.title}" 
-                     onerror="this.src='https://via.placeholder.com/150';" />
-                <h3>${listing.title}</h3>
-                <p>${listing.description}</p>
-                <span>Price: $${listing.price}</span>
-            </div>
-        `).join("");
+        // Search Button Click Event
+        searchBtn.addEventListener("click", function() {
+            const query = searchBar.value.toLowerCase();
+            console.log("Search Query on Button Click:", query); // Log the query when clicked
+            fetchListings(query);
+        });
+
+        // Search Input Event for Real-Time Search
+        searchBar.addEventListener("input", function() {
+            const query = searchBar.value.toLowerCase();
+            console.log("Search Query on Input:", query); // Log the query when typing
+            fetchListings(query);
+        });
+
+        // Initial fetch for featured listings
+        fetchFeaturedListings();
+    }, 500); // Delay by 500ms
+});
+
+// Fetch Listings Based on Search Query
+async function fetchListings(query) {
+    if (!query) {
+        console.error("Search query is empty.");
+        return;
+    }
+
+    // Log the query to ensure it's correct
+    console.log("Search Query:", query);
+
+    try {
+        const response = await fetch("db.json"); // Fetch the local db.json
+        const listings = await response.json();
+
+        // Filter the listings by matching the title with the query
+        const filteredListings = listings.listing.filter(item => {
+            // Matching by name only, case insensitive
+            return item.title.toLowerCase().includes(query.toLowerCase());
+        });
+
+        displaySearchResults(filteredListings);
     } catch (error) {
         console.error("Error fetching listings:", error);
-        alert("Failed to fetch listings.");
     }
 }
 
 
-// Initialize Listings on Page Load
-document.addEventListener('DOMContentLoaded', fetchListings);
+// Display Search Results
+function displaySearchResults(listings) {
+    const resultsContainer = document.getElementById("search-results-container");
+    resultsContainer.innerHTML = ""; // Clear previous results
 
-
-document.getElementById("add-listing-form").addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const token = localStorage.getItem("token");
-    if (!token) {
-        alert("You must be logged in to sell items.");
-        window.location.href = "login.html";
+    if (listings.length === 0) {
+        resultsContainer.innerHTML = "<p>No items found based on your search.</p>";
         return;
     }
 
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
-    const price = document.getElementById("price").value;
-    const imageFile = document.getElementById("image").files[0];
+    listings.forEach(item => {
+        const itemElement = document.createElement("div");
+        itemElement.classList.add("listing");
 
-    if (!imageFile) {
-        alert("Please upload an image.");
-        return;
-    }
+        itemElement.innerHTML = `
+            <img src="${item.image ? item.image : 'https://via.placeholder.com/150'}" 
+                 alt="${item.title}" 
+                 onerror="this.src='https://via.placeholder.com/150';" />
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+            <span>Price: $${item.price}</span>
+            <span>Condition: ${item.condition}</span>
+        `;
+        
+        // Add the created listing element to the container
+        resultsContainer.appendChild(itemElement);
+    });
+}
 
-    // Convert image to Base64
-    const reader = new FileReader();
-    reader.readAsDataURL(imageFile);
-    reader.onload = async function () {
-        const imageBase64 = reader.result;
 
-        try {
-            const response = await fetch("https://mokesell-ec88.restdb.io/rest/listing", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-apikey": API_KEY,
-                    "Authorization": token
-                },
-                body: JSON.stringify({ title, description, price, image: imageBase64 })
-            });
-
-            if (!response.ok) {
-                throw new Error("Failed to add listing.");
-            }
-
-            alert("Listing successfully added!");
-            window.location.href = "index.html";
-        } catch (error) {
-            console.error("Error adding listing:", error);
-            alert("Error adding listing.");
-        }
-    };
-});
-
+// Fetch Featured Listings
 async function fetchFeaturedListings() {
-    const API_URL = 'https://mokesell-ec88.restdb.io/rest/listing';
-    const API_KEY = '679628de0acc0620a20d364d';
-
     try {
-        const response = await fetch(API_URL, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-apikey': API_KEY
-            }
-        });
-
-        if (!response.ok) throw new Error('Failed to fetch featured listings.');
-
+        const response = await fetch("db.json"); // Use the local db.json file
         const listings = await response.json();
-        const listingsContainer = document.querySelector('#featured-listings .listings-container');
+        const listingsContainer = document.querySelector('#featured-listings-container');
 
         if (!listingsContainer) {
             console.error("Error: Listings container not found.");
@@ -129,9 +109,11 @@ async function fetchFeaturedListings() {
             return;
         }
 
-        listingsContainer.innerHTML = listings.map((listing) => `
+        listingsContainer.innerHTML = listings.listing.map((listing) => `
             <div class="listing">
-                <img src="${listing.image}" alt="${listing.title}" onerror="this.src='https://via.placeholder.com/150';" />
+                <img src="${listing.image ? listing.image : 'https://via.placeholder.com/150'}" 
+                     alt="${listing.title}" 
+                     onerror="this.src='https://via.placeholder.com/150';" />
                 <h3>${listing.title}</h3>
                 <p>${listing.description}</p>
                 <span>Price: $${listing.price}</span>

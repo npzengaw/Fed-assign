@@ -133,7 +133,9 @@ nav ul li a:hover {
 }
 
 /* Featured Listings Section */
-#featured-listings {
+
+
+#search-results {
     padding: 5vh 5vw;
     background-color: #ffffff;
     border-radius: 8px;
@@ -141,20 +143,20 @@ nav ul li a:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#featured-listings h2 {
+#search-results h2 {
     font-size: 1.8rem;
     margin-bottom: 2vh;
     color: #333;
     text-align: center;
 }
 
-.listings-container {
+#search-results-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
     gap: 2vw;
 }
 
-.listings-container .listing {
+#search-results-container .listing {
     background: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -164,12 +166,12 @@ nav ul li a:hover {
     transition: transform 0.3s;
 }
 
-.listings-container .listing:hover {
+#search-results-container .listing:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.listings-container .listing img {
+#search-results-container .listing img {
     max-width: 100%;
     height: 150px;
     object-fit: cover;
@@ -177,17 +179,68 @@ nav ul li a:hover {
     margin-bottom: 1vh;
 }
 
-.listings-container .listing h3 {
+#search-results-container .listing h3 {
     font-size: 1rem;
     margin: 0.5rem 0;
     font-weight: bold;
     color: #333;
 }
 
-.listings-container .listing p {
+#search-results-container .listing p {
     font-size: 0.9rem;
     color: #555;
 }
+
+
+/* Listings Section */
+.listing-grid {
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+    gap: 1.5rem; /* Add spacing between items */
+    width: 60%; /* Stretch to 60% of the screen width (leaving 20% on each side) */
+    margin: 0 auto; /* Center the grid within the available space */
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Search Results Section */
+#search-results-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+    gap: 1.5rem; /* Add spacing between items */
+    width: 80%; /* Stretch to 80% of the screen width */
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Featured Listings Section */
+#featured-listings-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+    gap: 1.5rem; /* Add spacing between items */
+    width: 80%; /* Stretch to 80% of the screen width */
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Featured Listings Section */
+#featured-listings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for fluid columns */
+    gap: 1.5rem; /* Add spacing between items */
+    width: 100%; /* Allow grid to take full width */
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light grey border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
 
 /* Footer Styling */
 footer {
@@ -221,11 +274,11 @@ footer {
         padding: 0.6em 1.2em;
     }
 
-    #featured-listings {
+    #search-results {
         padding: 3vh 2vw;
     }
 
-    .listings-container .listing {
+    #search-results-container .listing {
         padding: 1.5vh 1vw;
     }
 

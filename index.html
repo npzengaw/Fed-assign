@@ -37,11 +37,7 @@
         </nav>
     </header>
 
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <input type="text" placeholder="Search for items...">
-        <button>Search</button>
-    </div>
+
 
     <!-- Main Content -->
     <main>
@@ -52,18 +48,28 @@
             </div>
         </section>
 
-        <!-- Featured Listings -->
-        <section id="featured-listings">
-            <h2>Featured Listings</h2>
-            <!-- Ensure this element exists in your index.html or wherever you want to display the listings -->
-            <div id="featured-listings">
-                <div class="listings-container">
-                    <!-- Listings will be dynamically injected here -->
-                </div>
-            </div>
-        </section>
-    </main>
+        <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchBar" placeholder="Search for items...">
+        <button id="search-btn">Search</button>
+    </div>
 
+
+
+    <!-- Search Results Section -->
+    <section id="search-results">
+        <h2>Search Results</h2>
+        <div id="search-results-container"></div>
+    </section>
+
+    <!-- Featured Listings Section -->
+    <section id="featured-listings">
+        <h2>Featured Listings</h2>
+        <div id="featured-listings-container"></div>
+    </section>
+
+
+    
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
@@ -71,5 +77,6 @@
 
     <script src="config.js"></script>
     <script src="script.js" defer></script>
+
 </body>
 </html>
