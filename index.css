@@ -13,7 +13,7 @@ header {
     z-index: 10;
     background: linear-gradient(45deg, #E86D2C, #E69631);
     color: white;
-    padding: 1rem 2rem;
+    padding: 1rem 5vw; /* Scalable padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,13 +33,13 @@ nav ul {
 }
 
 nav ul li {
-    display: inline-flex; /* Align items horizontally */
-    align-items: center; /* Vertically center align text and button */
-    gap: 0.5rem; /* Space between Lottie button and text */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 nav ul li a {
-    font-size: 16px; /* Base font size */
+    font-size: 1rem;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -62,27 +62,28 @@ nav ul li a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 125%; /* 125% of the navigation link's font size */
+    width: 2em; /* Scales based on font size */
     height: auto; /* Maintain aspect ratio */
 }
 
 .lottie-button dotlottie-player {
-    width: 125%; /* Scale relative to the font size */
+    width: 100%; /* Matches the parent button width */
     height: auto; /* Maintain aspect ratio */
     display: inline-block;
+    transition: transform 0.2s ease;
 }
 
 .lottie-button:hover dotlottie-player {
-    transform: scale(1.1); /* Hover effect */
+    transform: scale(1.1); /* Interactive hover scaling */
     transition: transform 0.2s ease;
 }
 
 /* Welcome Banner Section */
 #welcome-banner {
-    padding: 2rem 1rem;
+    padding: 4vh 5vw;
     background-color: #ffffff;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 2rem;
+    margin-bottom: 2vh;
 }
 
 .welcome-text h2 {
@@ -102,15 +103,14 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.5rem auto;
+    margin: 3vh auto;
     gap: 0.5rem;
-    max-width: 600px;
+    max-width: 80%;
 }
 
 .search-bar input[type="text"] {
     width: 100%;
-    max-width: 400px;
-    padding: 0.5rem;
+    padding: 0.8em;
     border: 1px solid #ddd;
     border-radius: 4px 0 0 4px;
     outline: none;
@@ -118,41 +118,40 @@ nav ul li a:hover {
 }
 
 .search-bar button {
-    padding: 0.5rem 1rem;
-    background: linear-gradient(45deg, #E86D2C, #E69631); /* Use 'background' for gradients */
+    padding: 0.8em 2em;
+    background: linear-gradient(45deg, #E86D2C, #E69631);
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease;
 }
 
 .search-bar button:hover {
-    background: #E86D2C; /* Change background to a solid color on hover */
+    background: #E86D2C;
 }
-
 
 /* Featured Listings Section */
 #featured-listings {
-    padding: 2rem;
+    padding: 5vh 5vw;
     background-color: #ffffff;
     border-radius: 8px;
-    margin-top: 2rem;
+    margin-top: 3vh;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #featured-listings h2 {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2vh;
     color: #333;
     text-align: center;
 }
 
 .listings-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 2vw;
 }
 
 .listings-container .listing {
@@ -160,7 +159,7 @@ nav ul li a:hover {
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    padding: 1rem;
+    padding: 2vh 1vw;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
@@ -175,7 +174,7 @@ nav ul li a:hover {
     height: 150px;
     object-fit: cover;
     border-radius: 4px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1vh;
 }
 
 .listings-container .listing h3 {
@@ -190,18 +189,51 @@ nav ul li a:hover {
     color: #555;
 }
 
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
 
-/* Responsive Styling for Mobile */
+/* Responsive Styling */
 @media (max-width: 768px) {
+    header {
+        padding: 1rem 2vw;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
     nav ul li a {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .search-bar {
+        max-width: 90%;
+    }
+
+    .search-bar button {
+        padding: 0.6em 1.2em;
+    }
+
+    #featured-listings {
+        padding: 3vh 2vw;
+    }
+
+    .listings-container .listing {
+        padding: 1.5vh 1vw;
     }
 
     .lottie-button {
-        width: 110%; /* Adjust scaling for mobile */
+        width: 1.5em; /* Slightly smaller on mobile */
     }
 
     .lottie-button dotlottie-player {
-        width: 110%;
+        width: 1.5em; /* Adjusts with button size */
     }
 }
